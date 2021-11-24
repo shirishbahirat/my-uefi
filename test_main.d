@@ -10,4 +10,4 @@ test_main.o: test_main.c efi.h /usr/include/stdint.h \
   /usr/include/bits/types/mbstate_t.h \
   /usr/include/bits/types/__mbstate_t.h /usr/include/bits/types/__FILE.h \
   /usr/include/bits/types/FILE.h /usr/include/bits/types/locale_t.h \
-  /usr/include/bits/types/__locale_t.h
+  /usr/include/bits/types/__locale_t.h efi_spec.h
