@@ -13,8 +13,6 @@
 
 #define MESSAGE L"x86_64\r\n"
 typedef uint64_t UINTN;
- 
-//typedef UINTN EFI_STATUS;
 
 typedef uint8_t   BOOLEAN;
 typedef int8_t    INT8;

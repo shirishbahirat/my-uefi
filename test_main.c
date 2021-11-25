@@ -1,4 +1,5 @@
 #include "efi.h"
+#include "log.h"
  
 EFI_STATUS efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
 {
@@ -6,6 +7,8 @@ EFI_STATUS efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
 	EFI_STATUS Status;
 	EFI_INPUT_KEY Key;
  
+	info(SystemTable, L"Setting up the loader...\r\n");
+
 	/* Print message. */
 	Status = SystemTable->ConOut->OutputString(SystemTable->ConOut, L"Hello World\n\r" MESSAGE);
 	if(EFI_ERROR(Status))

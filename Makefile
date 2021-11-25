@@ -11,7 +11,7 @@ CC := clang
 LD := ld.lld
 ARCH ?= x86-64
 
-SRCS := test_main.c
+SRCS := test_main.c log.c debug.c
 
 default: all
 
@@ -19,7 +19,7 @@ default: all
 	$(CC) $(LDFLAGS) -c $< -o $o
 
 
-test.efi: test_main.o
+test.efi: test_main.o log.o debug.o
 	$(LD) $(LDFLAGS) $^ -out:$@
 
 -include $(SRCS:.c=.d)
