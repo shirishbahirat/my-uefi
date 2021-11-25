@@ -5,6 +5,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#include "efi.h"
+
 size_t strlen(const char *str);
 int strcmp(const char *l, const char *r);
 
