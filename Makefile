@@ -17,7 +17,7 @@ CC := clang
 LD := ld.lld
 ARCH ?= x86-64
 
-SRCS := test_main.c log.c debug.c driver_test.c protocol_test.c application_test.c
+SRCS := test_main.c log.c debug.c driver_test.c protocol_test.c application_test.c pei_driver.c
 
 default: all
 
@@ -33,6 +33,9 @@ application.efi: application_test.o log.o debug.o
 driver.efi: driver_test.o log.o debug.o
 	$(LD) $(LDFLAGS_BOOT_DRIVER) $^ -out:$@
 
+nvme.efi: pei_driver.o log.o debug.o
+	$(LD) $(LDFLAGS_BOOT_DRIVER) $^ -out:$@
+
 protocol.efi: protocol_test.o log.o debug.o
 	$(LD) $(LDFLAGS_RUNTIME_DRIVER) $^ -out:$@
 
@@ -41,6 +44,6 @@ protocol.efi: protocol_test.o log.o debug.o
 clean:
 	rm -f *.o *.efi *.lib *.d
 
-all: test.efi driver.efi protocol.efi application.efi
+all: test.efi driver.efi protocol.efi application.efi nvme.efi
 
 .PHONY: clean all
