@@ -168,7 +168,6 @@ EFI_STATUS efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
     gSt = SystemTable;
     UINT32 TimerTick;
 
-
     Status = SystemTable->BootServices->CreateEvent (
                   EVT_TIMER | EVT_NOTIFY_SIGNAL,
                   TPL_NOTIFY,
@@ -177,14 +176,13 @@ EFI_STATUS efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
                   &TimerEvent
                   );
 
-      Status = SystemTable->BootServices->SetTimer (
-                  TimerEvent,
-                  TimerPeriodic,
-                  TICKS_PER_MS
-                  );
+    Status = SystemTable->BootServices->SetTimer (
+              TimerEvent,
+              TimerPeriodic,
+              TICKS_PER_MS
+              );
 
     Status = SystemTable->BootServices->CreateEvent(EVT_TIMER, TPL_CALLBACK, IfTimerEventTriggered, NULL, &mTimerTriggered);
-
 
     Status = SystemTable->BootServices->CreateEvent(
                   EVT_NOTIFY_WAIT,
