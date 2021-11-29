@@ -11,6 +11,10 @@ typedef void* EFI_HANDLE;
  
 #define EFIERR(a) (a | ~(((EFI_STATUS)-1) >> 1))
 #define EFI_ERROR(a) (a & ~(((EFI_STATUS)-1) >> 1))
+#define EFI_SUCCESS 0
+
+#define SIGNATURE_16(A, B)        ((A) | (B << 8))
+#define SIGNATURE_32(A, B, C, D)  (SIGNATURE_16 (A, B) | (SIGNATURE_16 (C, D) << 16))
  
 #define EFI_NOT_READY EFIERR(6)
  
@@ -73,6 +77,39 @@ typedef struct {
 	EFI_INPUT_READ_KEY ReadKeyStroke;
 	EFI_PVOID          WaitForKey;
 } EFI_SIMPLE_TEXT_INPUT_PROTOCOL;
+
+
+typedef struct {
+  EFI_TABLE_HEADER                Hdr;
+  EFI_PEI_INSTALL_PPI             InstallPpi;
+  EFI_PEI_REINSTALL_PPI           ReInstallPpi;
+  EFI_PEI_LOCATE_PPI              LocatePpi;
+  EFI_PEI_NOTIFY_PPI              NotifyPpi;
+  EFI_PEI_GET_BOOT_MODE           GetBootMode;
+  EFI_PEI_SET_BOOT_MODE           SetBootMode;
+  EFI_PEI_GET_HOB_LIST            GetHobList;
+  EFI_PEI_CREATE_HOB              CreateHob;
+  EFI_PEI_FFS_FIND_NEXT_VOLUME2   FfsFindNextVolume;
+  EFI_PEI_FFS_FIND_NEXT_FILE2     FfsFindNextFile;
+  EFI_PEI_FFS_FIND_SECTION_DATA2  FfsFindSectionData;
+  EFI_PEI_INSTALL_PEI_MEMORY      InstallPeiMemory;
+  EFI_PEI_ALLOCATE_PAGES          AllocatePages;
+  EFI_PEI_ALLOCATE_POOL           AllocatePool;
+  EFI_PEI_COPY_MEM                CopyMem;
+  EFI_PEI_SET_MEM                 SetMem;
+  EFI_PEI_REPORT_STATUS_CODE      ReportStatusCode;
+  EFI_PEI_RESET_SYSTEM            ResetSystem;
+  EFI_PEI_CPU_IO_PPI              *CpuIo;
+  EFI_PEI_PCI_CFG2_PPI            *PciCfg;
+  EFI_PEI_FFS_FIND_BY_NAME        FfsFindFileByName;
+  EFI_PEI_FFS_GET_FILE_INFO       FfsGetFileInfo;
+  EFI_PEI_FFS_GET_VOLUME_INFO     FfsGetVolumeInfo;
+  EFI_PEI_REGISTER_FOR_SHADOW     RegisterForShadow;
+  EFI_PEI_FFS_FIND_SECTION_DATA3  FindSectionData3;
+  EFI_PEI_FFS_GET_FILE_INFO2      FfsGetFileInfo2;
+  EFI_PEI_RESET2_SYSTEM           ResetSystem2;
+  EFI_PEI_FREE_PAGES              FreePages;
+} EFI_PEI_SERVICES;
 
 
 
