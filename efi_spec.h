@@ -10,11 +10,17 @@
 #define OPTIONAL
 #define EFIAPI
 
+typedef VOID*   EFI_HII_HANDLE;
+
 #define MESSAGE L"x86_64\r\n"
 typedef uint64_t UINTN;
 
 #define TICKS_PER_MS            10000U
 #define TICKS_PER_SECOND        10000000U
+
+#define FALSE false
+#define TRUE true 
+
 
 typedef uint8_t   BOOLEAN;
 typedef int8_t    INT8;
@@ -27,6 +33,51 @@ typedef int64_t   INT64;
 typedef uint64_t  UINT64;
 typedef char      CHAR8;
 typedef uint16_t  CHAR16;
+typedef INT64     INTN;
+
+typedef CHAR16* EFI_STRING;
+
+#define EFI_IFR_TYPE_NUM_SIZE_8        0x00
+#define EFI_IFR_TYPE_NUM_SIZE_16       0x01
+#define EFI_IFR_TYPE_NUM_SIZE_32       0x02
+#define EFI_IFR_TYPE_NUM_SIZE_64       0x03
+#define EFI_IFR_TYPE_BOOLEAN           0x04
+#define EFI_IFR_TYPE_TIME              0x05
+#define EFI_IFR_TYPE_DATE              0x06
+#define EFI_IFR_TYPE_STRING            0x07
+#define EFI_IFR_TYPE_OTHER             0x08
+#define EFI_IFR_TYPE_UNDEFINED         0x09
+#define EFI_IFR_TYPE_ACTION            0x0A
+#define EFI_IFR_TYPE_BUFFER            0x0B
+#define EFI_IFR_TYPE_REF               0x0C
+
+#define EFI_IFR_OPTION_DEFAULT         0x10
+#define EFI_IFR_OPTION_DEFAULT_MFG     0x20
+
+typedef struct {
+  UINT8         Field8;
+  UINT16        Field16;
+  UINT8         OrderedList[3];
+  UINT16        SubmittedCallback;
+} MY_EFI_VARSTORE_DATA;
+
+typedef struct {
+  UINT16   NestByteField;
+  UINT8                    : 1; 
+  UINT8    NestBitCheckbox : 1;
+  UINT8    NestBitOneof    : 2;
+  UINT8                    : 0; 
+  UINT8    NestBitNumeric  : 4;
+} MY_BITS_DATA;
+
+typedef struct {
+  MY_BITS_DATA  BitsData;
+  UINT32   EfiBitGrayoutTest : 5;
+  UINT32   EfiBitNumeric     : 4;
+  UINT32   EfiBitOneof       : 10;
+  UINT32   EfiBitCheckbox    : 1;
+  UINT32                     : 0; 
+} MY_EFI_BITS_VARSTORE_DATA;
 
 typedef struct {
   UINT32  Data1;
@@ -143,6 +194,8 @@ typedef struct {
   UINT8 SubType;
   UINT8 Length[2];
 } EFI_DEVICE_PATH_PROTOCOL;
+
+#define END_DEVICE_PATH_LENGTH  (sizeof (EFI_DEVICE_PATH_PROTOCOL))
 
 typedef struct {
   EFI_HANDLE  AgentHandle;

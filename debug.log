@@ -30,7 +30,7 @@ FW CFG Revision: 0x3
 QemuFwCfg interface (DMA) is supported.
 Platform PEIM Loaded
 CMOS:
-00: 40 00 37 00 16 00 04 01 12 21 26 02 00 80 00 00
+00: 34 00 44 00 21 00 04 01 12 21 26 02 00 80 00 00
 10: 50 00 F0 00 07 80 02 FF FF 2F 00 00 04 10 FF FF
 20: C8 00 04 3F 00 00 00 00 00 00 00 00 00 00 00 00
 30: FF FF 20 00 00 07 00 20 30 00 00 00 00 12 00 00
@@ -563,7 +563,7 @@ Ftw: FtwWorkSpaceLba - 0x41, WorkBlockSize  - 0x1000, FtwWorkSpaceBase - 0x0
 Ftw: FtwSpareLba     - 0x42, SpareBlockSize - 0x1000
 Ftw: NumberOfWorkBlock - 0x1, FtwWorkBlockLba - 0x41
 Ftw: WorkSpaceLbaInSpare - 0x0, WorkSpaceBaseInSpare - 0x0
-Ftw: Remaining work space size - F90
+Ftw: Remaining work space size - FE0
 InstallProtocolInterface: 3EBD9E82-2C78-4DE6-9786-8D4BFCB7C881 6DEB028
 NOTICE - AuthVariableLibInitialize() returns Unsupported!
 Variable driver will continue to work without auth variable support!
@@ -1607,93 +1607,27 @@ Memory  Previous  Current    Next
 [Bds] Expand Fv(7CB8BDC9-F8EB-4F34-AAEA-3EE4AF6516A1)/FvFile(7C04A583-9E3E-4F1C-AD65-E05268D0B4D1) -> Fv(7CB8BDC9-F8EB-4F34-AAEA-3EE4AF6516A1)/FvFile(7C04A583-9E3E-4F1C-AD65-E05268D0B4D1)
 InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 64726C0
 Loading driver at 0x000062A2000 EntryPoint=0x000062C7480 Shell.efi
-InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 6BB1198
+InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 6B6FD98
 ProtectUefiImageCommon - 0x64726C0
   - 0x00000000062A2000 - 0x00000000000E7080
-InstallProtocolInterface: 387477C2-69C7-11D2-8E39-00A0C969723B 646F3A0
-InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 646EF18
+InstallProtocolInterface: 387477C2-69C7-11D2-8E39-00A0C969723B 646BCA0
+InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 646EF98
 InstallProtocolInterface: 6302D008-7F9B-4F30-87AC-60C9FEF5DA4E 63736C0
 FSOpen: Open '\' Success
 FSOpen: Open '.' Success
-FSOpen: Open '.' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\hello_world.o' Success
-[Security] 3rd party image[0] can be loaded after EndOfDxe: PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)/HD(1,MBR,0xBE1AFDFA,0x3F,0xFBFC1)/\hello_world.o.
-InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 6436040
-FSOpen: Open '\' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\hello_world.o' Success
-[Security] 3rd party image[0] can be loaded after EndOfDxe: PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)/HD(1,MBR,0xBE1AFDFA,0x3F,0xFBFC1)/\hello_world.o.
-InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 6436240
-FSOpen: Open '\' Success
-FSOpen: Open '\hello_world.efi' Success
-FSOpen: Open '\hello_world.efi' Success
-FSOpen: Open '\hello_world.efi' Success
-FSOpen: Open '\hello_world.efi' Success
-[Security] 3rd party image[0] can be loaded after EndOfDxe: PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)/HD(1,MBR,0xBE1AFDFA,0x3F,0xFBFC1)/\hello_world.efi.
-InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 6436240
-ConvertPages: failed to find range 140000000 - 140003FFF
-Loading driver at 0x0000641A000 EntryPoint=0x0000641C000 
-InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 6436118
-ProtectUefiImageCommon - 0x6436240
-  - 0x000000000641A000 - 0x0000000000004000
+FSOpen: Open '\dyn_pcd.efi' Success
+FSOpen: Open '\dyn_pcd.efi' Success
+FSOpen: Open '\dyn_pcd.efi' Success
+FSOpen: Open '\dyn_pcd.efi' Success
+[Security] 3rd party image[0] can be loaded after EndOfDxe: PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)/HD(1,MBR,0xBE1AFDFA,0x3F,0xFBFC1)/\dyn_pcd.efi.
+InstallProtocolInterface: 5B1B31A1-9562-11D2-8E3F-00A0C969723B 645F040
+ConvertPages: failed to find range 140000000 - 140005FFF
+Loading driver at 0x00006418000 EntryPoint=0x0000641C080 
+InstallProtocolInterface: BC62157E-3E33-4FEC-9920-2D3B36D750DF 645EA18
+ProtectUefiImageCommon - 0x645F040
+  - 0x0000000006418000 - 0x0000000000006000
 InstallProtocolInterface: 752F3136-4E16-4FDC-A22A-E5F46812F4CA 7E6B778
 ClockRate = 1843200
 Divisor   = 1
 BaudRate/Actual (115200/115200) = 100%
-FSOpen: Open '\' Success
-FSOpen: Open '.' Success
-FSOpen: Open '\log.d' Success
-FSOpen: Open '\test.efi' Success
-FSOpen: Open '\driver.efi' Success
-FSOpen: Open '\protocol_test.h' Success
-FSOpen: Open '\pei_driver.c' Success
-FSOpen: Open '\test_main.o' Success
-FSOpen: Open '\efi_spec.h' Success
-FSOpen: Open '\application.efi' Success
-FSOpen: Open '\log.o' Success
-FSOpen: Open '\driver_test.d' Success
-FSOpen: Open '\application_test.o' Success
-FSOpen: Open '\Makefile' Success
-FSOpen: Open '\.git' Success
-FSOpen: Open '\LICENSE' Success
-FSOpen: Open '\README.md' Success
-FSOpen: Open '\driver_test.c' Success
-FSOpen: Open '\protocol.efi' Success
-FSOpen: Open '\hello_world.o' Success
-FSOpen: Open '\protocol_test.d' Success
-FSOpen: Open '\hello_world.efi' Success
-FSOpen: Open '\pei_driver.o' Success
-FSOpen: Open '\log.c' Success
-FSOpen: Open '\debug.o' Success
-FSOpen: Open '\hello_world.c' Success
-FSOpen: Open '\debug.c' Success
-FSOpen: Open '\protocol_test.c' Success
-FSOpen: Open '\hello_world.d' Success
-FSOpen: Open '\test_main.d' Success
-FSOpen: Open '\OVMF.fd' Success
-FSOpen: Open '\debug.log' Success
-FSOpen: Open '\debug.h' Success
-FSOpen: Open '\log.h' Success
-FSOpen: Open '\pei_driver.d' Success
-FSOpen: Open '\driver_test.o' Success
-FSOpen: Open '\efi.h' Success
-FSOpen: Open '\application_test.d' Success
-FSOpen: Open '\test_main.c' Success
-FSOpen: Open '\debug.d' Success
-FSOpen: Open '\application_test.c' Success
-FSOpen: Open '\protocol_test.o' Success
-FSOpen: Open '\nvme.efi' Success
-FSOpen: Open '\' Success
-FSOpen: Open '.' Success
-FSOpen: Open '\test.efi' Success
-FSOpen: Open '\driver.efi' Success
-FSOpen: Open '\application.efi' Success
-FSOpen: Open '\protocol.efi' Success
-FSOpen: Open '\hello_world.efi' Success
-FSOpen: Open '\nvme.efi' Success
 FSOpen: Open '\' Success

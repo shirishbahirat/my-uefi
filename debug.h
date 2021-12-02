@@ -11,8 +11,8 @@ size_t strlen(const char *str);
 int strcmp(const char *l, const char *r);
 
 char *strncpy(char *dst, const char *src, size_t size);
-void *memcpy(void *dst, const void *src, size_t size);
-void *memset(void *ptr, int value, size_t size);
+//void *memcpy(void *dst, const void *src, size_t size);
+//void *memset(void *ptr, int value, size_t size);
 
 int isdigit(int code);
 int isalpha(int code);

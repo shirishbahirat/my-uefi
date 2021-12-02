@@ -506,6 +506,7 @@ uint16_t *to_u16strncpy(uint16_t *dst, const char *src, size_t size)
 	return dst;
 }
 
+/*
 void *memset(void *ptr, int value, size_t size)
 {
 	char *to = ptr;
@@ -514,6 +515,7 @@ void *memset(void *ptr, int value, size_t size)
 		*to++ = value;
 	return ptr;
 }
+
 
 void *memcpy(void *dst, const void *src, size_t size)
 {
@@ -524,6 +526,7 @@ void *memcpy(void *dst, const void *src, size_t size)
 		*to++ = *from++;
 	return dst;
 }
+*/
 
 int isdigit(int code)
 {

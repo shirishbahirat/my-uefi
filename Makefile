@@ -17,7 +17,7 @@ CC := clang
 LD := ld.lld
 ARCH ?= x86-64
 
-SRCS := test_main.c log.c debug.c driver_test.c protocol_test.c application_test.c pei_driver.c hello_world.c
+SRCS := test_main.c log.c debug.c driver_test.c protocol_test.c application_test.c pei_driver.c hello_world.c dyn_pcd.c driver_sample.c
 
 default: all
 
@@ -42,11 +42,17 @@ protocol.efi: protocol_test.o log.o debug.o
 hello_world.efi: hello_world.o log.o debug.o
 	$(LD) $(LDFLAGS_APPLICATION) $^ -out:$@
 
+dyn_pcd.efi: dyn_pcd.o log.o debug.o
+	$(LD) $(LDFLAGS_APPLICATION) $^ -out:$@
+
+driver_sample.efi: driver_sample.o log.o debug.o
+	$(LD) $(LDFLAGS_RUNTIME_DRIVER) $^ -out:$@
+
 -include $(SRCS:.c=.d)
 
 clean:
 	rm -f *.o *.efi *.lib *.d
 
-all: test.efi driver.efi protocol.efi application.efi nvme.efi hello_world.efi
+all: test.efi driver.efi protocol.efi application.efi nvme.efi hello_world.efi dyn_pcd.efi driver_sample.efi
 
 .PHONY: clean all
