@@ -54,7 +54,7 @@ hello_world.efi: hello_world.o log.o debug.o
 dyn_pcd.efi: dyn_pcd.o log.o debug.o
 	$(LD) $(LDFLAGS_APPLICATION) $^ -out:$@
 
-loader.efi: loader.o log.o debug.o
+boot.efi: loader.o log.o debug.o
 	$(LD) $(LDFLAGS_APPLICATION) $^ -out:$@
 
 -include $(SRCS:.c=.d)
@@ -64,6 +64,6 @@ clean:
 
 all: test.efi driver.efi protocol.efi \
 	application.efi nvme.efi hello_world.efi \
-	dyn_pcd.efi kernel.elf loader.efi
+	dyn_pcd.efi kernel.elf boot.efi
 
 .PHONY: clean all

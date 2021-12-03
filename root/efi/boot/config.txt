@@ -1,2 +1,2 @@
-kernel: efi/boot/kernel
-data: efi/boot/kernel
+kernel: efi\boot\kernel
+data: efi\boot\kernel
